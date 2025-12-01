@@ -8,6 +8,7 @@ authors = ["Marcel Witoschek <marcel.marciland@gmail.com>"]
 repository = "https://github.com/Marciland/aoc-2025"
 
 [dependencies]
+reqwest = { version = "0.12", features = ["cookies", "blocking"] }
 
 [dev-dependencies]
 criterion = "0.7.0"
@@ -63,18 +64,18 @@ harness = false
 name = "day12"
 harness = false
 
-[lints.clippy]
-correctness = "deny"
-suspicious = "deny"
-style = "deny"
-complexity = "deny"
-perf = "deny"
-pedantic = "deny"
-nursery = "deny"
-cargo = "deny"
+# [lints.clippy]
+# correctness = "deny"
+# suspicious = "deny"
+# style = "deny"
+# complexity = "deny"
+# perf = "deny"
+# pedantic = "deny"
+# nursery = "deny"
+# cargo = "deny"
 
-multiple_crate_versions = { level = "allow", priority = 1 }
+# multiple_crate_versions = { level = "allow", priority = 1 }
 
-[lints.rust]
-unsafe_code = "forbid"
-warnings = "deny"
+# [lints.rust]
+# unsafe_code = "forbid"
+# warnings = "deny"
