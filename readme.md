@@ -1,3 +1,7 @@
+# Ci Setup
+You need your Advent of Code session token, for this login into aoc and go into your browser dev settings, then inside the storage menu seach for the name "session" and copy the Value.
+Insert the Value inside the repository as a CI SECRET under the name "AOC_SESSION".
+
 # Advent of Code 2025 Progress
 
 |        | Star 1 | Star 2 |
