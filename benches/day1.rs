@@ -1,13 +1,13 @@
-use aoc_2025::read_input;
+use aoc_2025::fetch_aoc_input;
 use criterion::{Criterion, criterion_group, criterion_main};
 
 const START: i16 = 50;
 
-fn part1(input: &Vec<String>) -> u16 {
+fn part1(input: &str) -> u16 {
     let mut current = START;
     let mut result = 0;
 
-    for l in input {
+    for l in input.split('\n') {
         let (direction, distance_str) = l.split_at(1);
         let distance = distance_str.parse::<i16>().unwrap();
 
@@ -31,11 +31,11 @@ fn part1(input: &Vec<String>) -> u16 {
     result
 }
 
-fn part2(input: &Vec<String>) -> u16 {
+fn part2(input: &str) -> u16 {
     let mut current = START;
     let mut result = 0;
 
-    for l in input {
+    for l in input.split('\n') {
         let (direction, distance_str) = l.split_at(1);
         let distance = distance_str.parse::<i16>().unwrap();
 
@@ -69,7 +69,7 @@ fn part2(input: &Vec<String>) -> u16 {
 }
 
 fn bench_part1(c: &mut Criterion) {
-    let input = read_input(1);
+    let input = fetch_aoc_input(1);
 
     let result = part1(&input);
     println!("day1 part1 result: {result}");
@@ -78,7 +78,7 @@ fn bench_part1(c: &mut Criterion) {
 }
 
 fn bench_part2(c: &mut Criterion) {
-    let input = read_input(1);
+    let input = fetch_aoc_input(1);
 
     let result = part2(&input);
     println!("day1 part2 result: {result}");

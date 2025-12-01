@@ -7,6 +7,8 @@ jobs:
   benchmark:
     timeout-minutes: 10
     runs-on: ubuntu-latest
+    env:
+      AOC_SESSION: ${{ secrets.AOC_SESSION }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions-rust-lang/setup-rust-toolchain@v1

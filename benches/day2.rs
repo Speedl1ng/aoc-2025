@@ -1,4 +1,4 @@
-use aoc_2025::read_input;
+use aoc_2025::fetch_aoc_input;
 use criterion::{Criterion, criterion_group, criterion_main};
 
 fn part1(input: &str) -> u64 {
@@ -57,8 +57,7 @@ fn part2(input: &str) -> u64 {
 }
 
 fn bench_part1(c: &mut Criterion) {
-    let input = read_input(2);
-    let input = input.join("");
+    let input = fetch_aoc_input(2);
 
     let result = part1(&input);
     println!("day2 part1 result: {result}");
@@ -67,8 +66,7 @@ fn bench_part1(c: &mut Criterion) {
 }
 
 fn bench_part2(c: &mut Criterion) {
-    let input = read_input(2);
-    let input = input.join("");
+    let input = fetch_aoc_input(2);
 
     let result = part2(&input);
     println!("day2 part2 result: {result}");

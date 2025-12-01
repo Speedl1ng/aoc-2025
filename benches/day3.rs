@@ -1,4 +1,4 @@
-use aoc_2025::read_input;
+use aoc_2025::fetch_aoc_input;
 use criterion::{Criterion, criterion_group, criterion_main};
 
 #[derive(Copy, Clone)]
@@ -42,10 +42,10 @@ fn find_best_batteries(
     find_best_batteries(bank, remaining_batteries - 1, best_batteries);
 }
 
-fn solve(banks: &Vec<String>, batteries_active: u8) -> u64 {
+fn solve(banks: &str, batteries_active: u8) -> u64 {
     let mut result: u64 = 0;
 
-    for bank in banks {
+    for bank in banks.split('\n') {
         let batteries: Vec<Battery> = bank
             .chars()
             .map(|c| c.to_digit(10).unwrap())
@@ -65,16 +65,16 @@ fn solve(banks: &Vec<String>, batteries_active: u8) -> u64 {
     result
 }
 
-fn part1(input: &Vec<String>) -> u64 {
+fn part1(input: &str) -> u64 {
     solve(input, 2)
 }
 
-fn part2(input: &Vec<String>) -> u64 {
+fn part2(input: &str) -> u64 {
     solve(input, 12)
 }
 
 fn bench_part1(c: &mut Criterion) {
-    let input = read_input(3);
+    let input = fetch_aoc_input(3);
 
     let result = part1(&input);
     println!("day3 part1 result: {result}");
@@ -83,7 +83,7 @@ fn bench_part1(c: &mut Criterion) {
 }
 
 fn bench_part2(c: &mut Criterion) {
-    let input = read_input(3);
+    let input = fetch_aoc_input(3);
 
     let result = part2(&input);
     println!("day3 part2 result: {result}");

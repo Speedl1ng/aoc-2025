@@ -1,18 +1,17 @@
-use std::{
-    fs::File,
-    io::{BufRead, BufReader},
-    path::PathBuf,
-};
+use reqwest::{blocking::Client, header::COOKIE};
 
-#[must_use]
 #[allow(clippy::missing_panics_doc)]
-pub fn read_input(day: u8) -> Vec<String> {
-    let file_path = PathBuf::from(format!("input/{day}.input"));
-    let file = File::open(file_path).unwrap_or_else(|_| panic!("missing file {day}"));
-    let reader = BufReader::new(file);
+pub fn fetch_aoc_input(day: u8) -> String {
+    let session =
+        std::env::var("AOC_SESSION").expect("AOC_SESSION environment variable must be set");
 
-    reader
-        .lines()
-        .map(|line| line.expect("Invalid input formatting"))
-        .collect()
+    let url = format!("https://adventofcode.com/2025/day/{day}/input");
+
+    let response = Client::new()
+        .get(&url)
+        .header(COOKIE, format!("session={session}"))
+        .send()
+        .expect("Failed to fetch input");
+
+    response.text().expect("Failed to read response text")
 }
