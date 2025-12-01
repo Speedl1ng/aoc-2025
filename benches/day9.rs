@@ -1,11 +1,11 @@
 use aoc_2025::fetch_aoc_input;
 use criterion::{BenchmarkId, Criterion, criterion_group, criterion_main};
 
-const fn part1(input: &str) {
+const fn part1(_input: &str) {
     //
 }
 
-const fn part2(input: &str) {
+const fn part2(_input: &str) {
     //
 }
 
