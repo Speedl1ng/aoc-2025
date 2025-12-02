@@ -32,10 +32,9 @@ fn part1(input: &str) -> i16 {
     let mut dial: i16 = 50;
     for line in lines {
         let bytes = line.as_bytes();
-        let len = bytes.len();
         let direction = bytes[0];
         let number: i16 = unsafe {
-            str::from_utf8_unchecked(&bytes[1..len])
+            str::from_utf8_unchecked(&bytes[1..])
                 .parse()
                 .expect("Failed to parse number")
         };
@@ -64,10 +63,9 @@ fn part2(input: &str) -> i16 {
     let mut dial: i16 = 50;
     for line in lines {
         let bytes = line.as_bytes();
-        let len = bytes.len();
         let direction = bytes[0];
         let number: i16 = unsafe {
-            str::from_utf8_unchecked(&bytes[1..len])
+            str::from_utf8_unchecked(&bytes[1..])
                 .parse()
                 .expect("Failed to parse number")
         };
@@ -77,21 +75,16 @@ fn part2(input: &str) -> i16 {
             dial -= rest;
             if dial < 0 {
                 dial += 100;
+                counter += 1;
             }
         } else {
             dial += rest;
             if dial >= 100 {
                 dial -= 100;
+                counter += 1;
             }
         }
-        if number >= 100 {
-            println!("Add rest {rest}");
-            counter += rest;
-        }
-        if dial == 0 {
-            println!("Add point at 0");
-            counter += 1;
-        }
+        counter += clicks;
     }
     counter
 }
