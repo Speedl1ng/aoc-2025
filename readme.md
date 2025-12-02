@@ -16,7 +16,7 @@ This secret is required for the CI workflow to authenticate with Advent of Code.
 |        | Star 1 | Star 2 |
 | ------ | ------ | ------ |
 | Day 1  | ✅     | ❌     |
-| Day 2  | ❌     | ❌     |
+| Day 2  | ✅     | ✅     | 
 | Day 3  | ❌     | ❌     |
 | Day 4  | ❌     | ❌     |
 | Day 5  | ❌     | ❌     |
