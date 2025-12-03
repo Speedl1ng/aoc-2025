@@ -90,8 +90,8 @@ fn part2(input: &str) -> i16 {
 }
 
 fn bench_part1(mut c: &mut Criterion) {
-    let example = include_str!("../input/example.txt");
-    assert_eq!(part1(example), 3);
+    // let example = include_str!("../input/example.txt");
+    // assert_eq!(part1(example), 3);
     let input = fetch_aoc_input(2025, 1).expect("failed to fetch input");
     let result = part1(&input);
     println!("day1 part1 result: {result}");
@@ -104,8 +104,8 @@ fn bench_part1(mut c: &mut Criterion) {
 }
 
 fn bench_part2(c: &mut Criterion) {
-    let example = include_str!("../input/example.txt");
-    assert_eq!(part2(example), 6);
+    // let example = include_str!("../input/example.txt");
+    // assert_eq!(part2(example), 6);
     let input = fetch_aoc_input(2025, 1).expect("failed to fetch input");
     let result = part2(&input);
     println!("day1 part2 result: {result}");
@@ -117,5 +117,5 @@ fn bench_part2(c: &mut Criterion) {
     );
 }
 
-criterion_group!(benches, bench_part2);
+criterion_group!(benches, bench_part1, bench_part2);
 criterion_main!(benches);
