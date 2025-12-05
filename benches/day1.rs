@@ -1,36 +1,12 @@
 use aoc_2025::fetch_aoc_input;
 use criterion::{BenchmarkId, Criterion, criterion_group, criterion_main};
 
-// #[derive(Debug)]
-// pub struct Dial(pub i16);
-
-// impl Dial {
-//     fn turn_right(&mut self, right_turns: i16) {
-//         let dial = self.0;
-//         let rest: i16 = right_turns % 100;
-//         let mut new = dial + rest;
-//         if new >= 100 {
-//             new -= 100;
-//         }
-//         self.0 = new;
-//     }
-
-//     fn turn_left(&mut self, left_turns: i16) {
-//         let dial = self.0;
-//         let rest: i16 = left_turns % 100;
-//         let mut new = dial - rest;
-//         if new < 0 {
-//             new += 100;
-//         }
-//         self.0 = new;
-//     }
-// }
-
 fn part1(input: &str) -> i16 {
-    let lines = input.lines();
+    let lines = input.trim().lines();
     let mut counter = 0;
     let mut dial: i16 = 50;
     for line in lines {
+        let line = line.trim();
         let bytes = line.as_bytes();
         let direction = bytes[0];
         let number: i16 = unsafe {
@@ -90,8 +66,18 @@ fn part2(input: &str) -> i16 {
 }
 
 fn bench_part1(mut c: &mut Criterion) {
-    // let example = include_str!("../input/example.txt");
-    // assert_eq!(part1(example), 3);
+    let example = "
+    L68
+    L30
+    R48
+    L5
+    R60
+    L55
+    L1
+    L99
+    R14
+    L82";
+    assert_eq!(part1(example), 3);
     let input = fetch_aoc_input(2025, 1).expect("failed to fetch input");
     let result = part1(&input);
     println!("day1 part1 result: {result}");
@@ -104,8 +90,18 @@ fn bench_part1(mut c: &mut Criterion) {
 }
 
 fn bench_part2(c: &mut Criterion) {
-    // let example = include_str!("../input/example.txt");
-    // assert_eq!(part2(example), 6);
+    let example = "
+    L68
+    L30
+    R48
+    L5
+    R60
+    L55
+    L1
+    L99
+    R14
+    L82";
+    assert_eq!(part2(example), 6);
     let input = fetch_aoc_input(2025, 1).expect("failed to fetch input");
     let result = part2(&input);
     println!("day1 part2 result: {result}");

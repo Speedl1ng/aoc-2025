@@ -61,7 +61,7 @@ fn part2(input: &str) -> u64 {
 }
 
 fn bench_part1(c: &mut Criterion) {
-    let example = include_str!("../input/example.txt");
+    let example = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124";
     assert_eq!(part1(example), 1227775554);
 
     let input = fetch_aoc_input(2025, 2).expect("failed to fetch input");
@@ -72,7 +72,7 @@ fn bench_part1(c: &mut Criterion) {
 }
 
 fn bench_part2(c: &mut Criterion) {
-    let example = include_str!("../input/example.txt");
+    let example = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124";
     assert_eq!(part2(example), 4174379265);
 
     let input = fetch_aoc_input(2025, 2).expect("failed to fetch input");
