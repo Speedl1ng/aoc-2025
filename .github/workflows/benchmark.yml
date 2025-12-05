@@ -17,5 +17,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           shared-key: ${{ hashFiles('**/Cargo.lock') }}
-      - run: sudo apt install -y gnuplot # get rid of some of the useless output
+      - run: |
+          sudo apt update
+          sudo apt install -y gnuplot # get rid of some of the useless output
       - run: cargo bench -- --quiet --noplot
