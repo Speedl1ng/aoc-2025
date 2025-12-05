@@ -1,7 +1,7 @@
 use aoc_2025::{fetch_aoc_input, next_even_len_down, next_even_len_up};
-use criterion::{BenchmarkId, Criterion, criterion_group, criterion_main};
+use criterion::{Criterion, criterion_group, criterion_main};
 use rayon::{
-    iter::{IntoParallelIterator, IntoParallelRefIterator, ParallelBridge, ParallelIterator},
+    iter::{ParallelBridge, ParallelIterator},
     str::ParallelString,
 };
 
@@ -68,11 +68,7 @@ fn bench_part1(c: &mut Criterion) {
     let result = part1(&input);
     println!("day2 part1 result: {result}");
 
-    c.bench_with_input(
-        BenchmarkId::new("day2 part1", "fetched_input"),
-        &input,
-        |b, s| b.iter(|| part1(s)),
-    );
+    c.bench_function("day2 part1", |b| b.iter(|| part1(&input)));
 }
 
 fn bench_part2(c: &mut Criterion) {
@@ -82,11 +78,7 @@ fn bench_part2(c: &mut Criterion) {
     let input = fetch_aoc_input(2025, 2).expect("failed to fetch input");
     let result = part2(&input);
     println!("day2 part2 result: {result}");
-    c.bench_with_input(
-        BenchmarkId::new("day2 part2", "fetched_input"),
-        &input,
-        |b, s| b.iter(|| part2(s)),
-    );
+    c.bench_function("day2 part2", |b| b.iter(|| part1(&input)));
 }
 
 criterion_group!(benches, bench_part1, bench_part2);
