@@ -17,8 +17,8 @@ This secret is required for the CI workflow to authenticate with Advent of Code.
 | ------ | ------ | ------ |
 | Day 1  | ✅     | ❌     |
 | Day 2  | ✅     | ✅     | 
-| Day 3  | ❌     | ❌     |
-| Day 4  | ❌     | ❌     |
+| Day 3  | ✅     | ✅     |
+| Day 4  | ✅     | ✅     |
 | Day 5  | ❌     | ❌     |
 | Day 6  | ❌     | ❌     |
 | Day 7  | ❌     | ❌     |

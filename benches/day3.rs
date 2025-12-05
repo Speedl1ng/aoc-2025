@@ -4,9 +4,10 @@ use aoc_2025::fetch_aoc_input;
 use criterion::{Criterion, criterion_group, criterion_main};
 
 fn part1(input: &str) -> u64 {
-    let lines = input.lines();
+    let lines = input.trim().lines();
     let mut res = 0;
     for line in lines {
+        let line = line.trim();
         let len = line.len();
 
         let (mut h1, mut h2) = ((0u8, -1i16), (0u8, -1i16));
@@ -86,7 +87,11 @@ fn part2(input: &str) -> u64 {
 }
 
 fn bench_part1(c: &mut Criterion) {
-    let example = include_str!("../input/example.txt");
+    let example = "
+        987654321111111
+        811111111111119
+        234234234234278
+        818181911112111";
     assert_eq!(part1(example), 357);
 
     let input = fetch_aoc_input(2025, 3).expect("failed to fetch input");
@@ -96,7 +101,10 @@ fn bench_part1(c: &mut Criterion) {
 }
 
 fn bench_part2(c: &mut Criterion) {
-    let example = include_str!("../input/example.txt");
+    let example = "987654321111111
+    811111111111119
+    234234234234278
+    818181911112111";
     assert_eq!(part2(example), 3121910778619);
 
     let input = fetch_aoc_input(2025, 3).expect("failed to fetch input");
